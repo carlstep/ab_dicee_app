@@ -9,7 +9,7 @@ void main() {
           title: Text('Dicee'),
           backgroundColor: Colors.red,
         ),
-        body: DicePage(),
+        body: DicePage(), // gives a StatelessWidget >> see DicePage class
       ),
     ),
   );
@@ -18,6 +18,15 @@ void main() {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Row(
+      children: [
+        Expanded(
+          child: Image.asset('images/dice1.png'),
+        ),
+        Expanded(
+          child: Image.asset('images/dice2.png'),
+        )
+      ],
+    );
   }
 }
