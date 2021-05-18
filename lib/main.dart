@@ -25,19 +25,23 @@ class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 5; // creates the variable for the left dice
   int rightDiceNumber = 1; // creates the variable for the right dice
 
+  void changeDiceFace() {
+    setState(() {
+      leftDiceNumber = Random().nextInt(6) + 1;
+      rightDiceNumber =
+          Random().nextInt(6) + 1; // changes the left dice variable value
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    rightDiceNumber = 1; // changes the right dice variable value
-
     return Center(
       child: Row(
         children: <Widget>[
           Expanded(
             child: TextButton(
               onPressed: () {
-                setState(() {
-                  leftDiceNumber = 3; // changes the left dice variable value
-                });
+                changeDiceFace();
               },
               child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
@@ -45,7 +49,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: TextButton(
               onPressed: () {
-                print('right dice pressed');
+                changeDiceFace();
               },
               child: Image.asset('images/dice$rightDiceNumber.png'),
             ),
